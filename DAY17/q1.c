@@ -4,25 +4,19 @@ int main() {
     int n;
     scanf("%d", &n);
     
-    int arr[100000];  
+    int nums[100005];  // Handles up to 10^5 elements safely
     for(int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+        scanf("%d", &nums[i]);
     }
     
-    int max_val = arr[0];
-    int min_val = arr[0];
+    int max_num = nums[0];
+    int min_num = nums[0];
     
     for(int i = 1; i < n; i++) {
-        if(arr[i] > max_val) {
-            max_val = arr[i];
-        }
-        if(arr[i] < min_val) {
-            min_val = arr[i];
-        }
+        if(nums[i] > max_num) max_num = nums[i];
+        if(nums[i] < min_num) min_num = nums[i];
     }
     
-    printf("Max: %d\n", max_val);
-    printf("Min: %d\n", min_val);
-    
+    printf("Max: %d\nMin: %d\n", max_num, min_num);
     return 0;
 }
