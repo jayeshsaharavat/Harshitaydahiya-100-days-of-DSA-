@@ -1,20 +1,30 @@
-#include <stdlib.h>
+#include <stdio.h>
 
-int* productExceptSelf(int* nums, int numsSize, int* returnSize) {
-    int* answer = (int*)malloc(numsSize * sizeof(int));
-    *returnSize = numsSize;
+int main() {
+    int n, k;
+    int arr[100];
 
-    int prefix = 1;
-    for (int i = 0; i < numsSize; i++) {
-        answer[i] = prefix;
-        prefix *= nums[i];
+    // Read size
+    scanf("%d", &n);
+
+    // Read array elements
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
 
-    int suffix = 1;
-    for (int i = numsSize - 1; i >= 0; i--) {
-        answer[i] *= suffix;
-        suffix *= nums[i];
+    // Read rotation count
+    scanf("%d", &k);
+
+    // Handle large k
+    k = k % n;
+
+    // Print rotated array
+    for(int i = n - k; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    for(int i = 0; i < n - k; i++) {
+        printf("%d ", arr[i]);
     }
 
-    return answer;
+    return 0;
 }
